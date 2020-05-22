@@ -12,7 +12,8 @@
         rel="stylesheet">
     <script
         src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
-
+        <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+        <script type="text/javascript">Loader.load();</script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/minilazyload@2.3.3/dist/minilazyload.min.js"></script>
     <title>Mňága on/offline happy end</title>
@@ -83,10 +84,14 @@
                 </div>
                 <h2>CHCI PROMÍTAT U SEBE V PODNIKU </h2>
                 <h2>JIŽ SE ZAPOJILI</h2>
+
+                                <div id="map-mapycz" style="height:380px">
+                                </div>
             </div>
             <div class="content offline">
                 <h1>Mňága offline happy end</h1>
                 <p>Mňága a Žďorp + film Happy End - amfitéatr Valašské Meziřící  - 30.5.2020</p>
+
             </div>
         </div>
 
@@ -143,6 +148,7 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="malltvcarousel.js"></script>
     <script>
+        /* Switch */
         var switchBtn = document.querySelector('#switch');
         var content = document.querySelector('#wrapper-content');
         switchBtn.addEventListener("change", function () {
@@ -150,7 +156,84 @@
             content.classList.toggle("online");
             content.classList.toggle("offline");
         }, true);
+        /* Mapy */
+        // var center = SMap.Coords.fromWGS84(14.41790, 50.12655);
+        // var m = new SMap(JAK.gel("map-mapycz"), center, 13);
+        // m.addDefaultLayer(SMap.DEF_BASE).enable();
+        // m.addDefaultControls();
 
+        // var layer = new SMap.Layer.Marker();
+        // m.addLayer(layer);
+        // layer.enable();
+
+        // var card = new SMap.Card();
+        // card.getHeader().innerHTML = "<strong>Nadpis</strong>";
+        // card.getBody().innerHTML = "Ahoj, já jsem <em>obsah vizitky</em>!";
+
+        // var options = {
+        //     title: "Dobré ráno"
+        // };
+        // var marker = new SMap.Marker(center, "myMarker", options);
+        // marker.decorate(SMap.Marker.Feature.Card, card);
+        // layer.addMarker(marker);
+    var obrazek = "https://api.mapy.cz/img/api/marker/drop-red.png";
+
+    var m = new SMap(JAK.gel("map-mapycz"));
+    m.addControl(new SMap.Control.Sync()); /* Aby mapa reagovala na změnu velikosti průhledu */
+    m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
+    var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
+    m.addControl(mouse);
+
+    var vrstva = new SMap.Layer.Marker();     /* Vrstva se značkami */
+    var souradnice = [];
+    // data pro markery
+    var markers = [{
+        name: "Karlštejn",
+        description: "blah blah <span>1</span>",
+        id: 1,
+        coords: "49°56'21.57\"N,14°11'17.96\"E"
+    }, {
+        name: "Křivoklát",
+        description: "blah blah <span>2</span>",        
+        id: 2,
+        coords: "50°2'16.36\"N,13°52'18.59\"E"
+    }, {
+        name: "Kost",
+        description: "blah blah <span>3</span>",        
+        id: 3,
+        coords: "50°29'24.83\"N,15°8'6.38\"E"
+    }];
+
+    // vytvoreni markeru
+    markers.forEach(function (marker) {
+        var c = SMap.Coords.fromWGS84(marker.coords); /* Souřadnice značky, z textového formátu souřadnic */
+
+        var options = {
+            url: obrazek,
+            title: marker.name,
+            anchor: { left: 10, bottom: 1 }  /* Ukotvení značky za bod uprostřed dole */
+        }
+
+        
+        var card = new SMap.Card();
+        card.getHeader().innerHTML = "<strong>" + marker.name + "</strong>";
+        card.getBody().innerHTML = marker.description;
+
+        // duletize je prirazeni id jednotlivemu markeru - vlastni id, jinak se generuje nahodne
+        var znacka = new SMap.Marker(c, marker.id, options);
+        souradnice.push(c);
+        znacka.decorate(SMap.Marker.Feature.Card, card);
+        vrstva.addMarker(znacka);
+    });
+
+    // zobrazime a povolime vrstvu - pokud by se vrstva povolila pred vkladanim markeru, tak by se s kazdym vlozenym markerem prekreslovala mapa a pocitaly pozice vsech markeru
+    m.addLayer(vrstva);                          /* Přidat ji do mapy */
+    vrstva.enable();                         /* A povolit */
+
+    var cz = m.computeCenterZoom(souradnice); /* Spočítat pozici mapy tak, aby značky byly vidět */
+    m.setCenterZoom(cz[0], cz[1]);
+
+              
     </script>
 </body>
 
