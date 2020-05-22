@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css"
+        rel="stylesheet">
+    <script
+        src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/minilazyload@2.3.3/dist/minilazyload.min.js"></script>
     <title>Mňága</title>
@@ -39,6 +45,16 @@
             style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     <div id="page">
+        <input type="checkbox" data-toggle="switchbutton" checked data-onlabel="Online"
+            data-offlabel="Offline">
+        <div id="content">
+            <div class="content online">
+                Online
+            </div>
+            <div class="content offline">
+                Offline
+            </div>
+        </div>
 
         <div id="malltv-promo" class="section malltvapp">
             <div class="container">
@@ -93,36 +109,7 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="malltvcarousel.js"></script>
     <script>
-        var emailInput = document.querySelector("input.email");
-        emailInput.style = "display: none;";
-        var formResult = document.querySelector("#form-result");
 
-        document.querySelector("#submit").addEventListener("click", function (event) {
-            console.log("click");
-            event.preventDefault();
-            var emailInput = document.querySelector("input#email").value;
-            var messageInput = document.querySelector("textarea#message").value;
-            saveMessage(messageInput, emailInput)
-        });
-        function saveMessage(message, email) {
-            console.log(message, "message");
-            console.log(email, "email");
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText == "1") {
-                        formResult.innerHTML = '<div class="success">Podnět úspěšně odeslán!</div>';
-                    } else {
-                        formResult.innerHTML = '<div class="nosuccess">Podnět nebyl odeslán!</div>';
-                    }
-                    document.querySelector("input#email").value = "";
-                    document.querySelector("textarea#message").value = "";
-                }
-            }
-            xhttp.open("POST", "post_message.php", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("message=" + message + "&email=" + email);
-        }
 
     </script>
 </body>
