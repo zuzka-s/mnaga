@@ -37,6 +37,28 @@
         gjdmp.pv(); 
     </script> -->
     <!-- End MallTV DMP Code -->
+    <style>
+        #wrapper-content.online {
+            background: white;
+            color: black;
+        }
+        #wrapper-content.online .content.offline {
+            display: none;
+        }
+        #wrapper-content.online .content.online {
+            display: block
+        }
+        #wrapper-content.offline {
+            background: black;
+            color: white;
+        }
+        #wrapper-content.offline .content.online {
+            display: none;
+        }
+        #wrapper-content.offline .content.offline {
+            display: block;
+        }                
+    </style>
 </head>
 
 <body>
@@ -45,14 +67,14 @@
             style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     <div id="page">
-        <input type="checkbox" data-toggle="switchbutton" checked data-onlabel="Online"
-            data-offlabel="Offline">
-        <div id="content">
+
+        <div id="wrapper-content" class="online">
+                    <input id="switch" type="checkbox" data-toggle="switchbutton" checked data-onlabel="Online" data-offlabel="Offline">
             <div class="content online">
-                Online
+                Online obsah
             </div>
             <div class="content offline">
-                Offline
+                Offline obsah
             </div>
         </div>
 
@@ -109,7 +131,13 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="malltvcarousel.js"></script>
     <script>
-
+        var switchBtn = document.querySelector('#switch');
+        var content = document.querySelector('#wrapper-content');
+        switchBtn.addEventListener("change", function () {
+            console.log(switchBtn.checked);
+            content.classList.toggle("online");
+            content.classList.toggle("offline");
+        }, true);
 
     </script>
 </body>
