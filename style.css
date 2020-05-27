@@ -18,25 +18,60 @@ h6 {
   font-weight: 700;
 }
 
+#wrapper-content.online {
+  background: white url("images/white.png") no-repeat;
+  color: black;
+}
+
+#wrapper-content.online .content.offline {
+  display: none;
+}
+
+#wrapper-content.online .content.online {
+  display: block;
+}
+
+#wrapper-content.offline {
+  background: #040404 url("images/black.jpg") no-repeat;
+  color: white;
+}
+
+#wrapper-content.offline .content.online {
+  display: none;
+}
+
+#wrapper-content.offline .content.offline {
+  display: block;
+}
+
+p, label {
+  font-size: 1.3rem;
+}
+
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   background-image: url();
   background-repeat: no-repeat;
   height: 350px;
+  padding-top: 1em;
 }
 
 .logo-img {
-  float: right;
-  margin: 0 5%;
-}
-
-.container-dark {
-  background-color: #acacac;
+  float: left;
+  margin: 0 0 0 5%;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
 }
 
 .container-date {
   text-align: center;
-  margin: 3% 0;
   padding: 3% 0;
   width: 100%;
 }
@@ -49,30 +84,51 @@ h6 {
 
 .container-date .date-box {
   background-color: #ffea00e0;
-  width: 50%;
   display: block;
   margin: auto;
   padding: 5%;
   border-radius: 10px;
 }
 
-.link {
+.btn-primary, .link {
   padding: 1.5%;
   font-size: 1.3em;
-  background-color: #FFE800;
+  background-color: #ffe800;
   display: block;
-  width: 250px;
+  max-width: 250px;
   margin: auto;
   border-radius: 5px;
 }
 
-a.link {
+.btn-primary {
+  padding: 0.5em 1em;
+  border: none;
+}
+
+.btn-primary, a.link {
   color: #000000;
   text-decoration: none;
 }
 
-.link:hover {
-  background-color: #EEBE00;
+.btn-primary:hover, .link:hover, .btn-primary:focus, .link:focus, .btn-primary:active, .link:active, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle, .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  background-color: #282d30;
+  color: white;
+}
+
+.btn-primary:focus, .link:focus, .btn-primary:active, .link:active {
+  outline: #EEBE00;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 232, 0, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 232, 0, 0.5);
+}
+
+.form-control:focus {
+  border-color: #ffe800;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 232, 0, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 232, 0, 0.5);
 }
 
 /* -------------- SWITCHER -------*/
@@ -119,6 +175,39 @@ a.link {
 
 .btn:hover {
   background-color: #282d30;
+}
+
+.switch-wrapper {
+  padding-top: 1em;
+}
+
+h2.yellow-border {
+  margin: 2em 0 1em 0;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 2px solid #FBC700;
+}
+
+.form-for-businesses {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/*MAP*/
+.smap .card {
+  padding: 0;
+}
+
+.card-footer {
+  display: none;
+}
+
+.card-header {
+  background: #ffe800;
+}
+
+#map-mapycz {
+  height: 550px !important;
 }
 
 /*Mall TV carousel */

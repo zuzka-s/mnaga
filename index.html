@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> 
-        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css"
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css"
         rel="stylesheet">
     <script
         src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
-        <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
-        <script type="text/javascript">Loader.load();</script>
+    <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.load();</script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/minilazyload@2.3.3/dist/minilazyload.min.js"></script>
     <title>Mňága on/offline happy end</title>
@@ -39,26 +39,7 @@
     </script> -->
     <!-- End MallTV DMP Code -->
     <style>
-        #wrapper-content.online {
-            background: white;
-            color: black;
-        }
-        #wrapper-content.online .content.offline {
-            display: none;
-        }
-        #wrapper-content.online .content.online {
-            display: block
-        }
-        #wrapper-content.offline {
-            background: black;
-            color: white;
-        }
-        #wrapper-content.offline .content.online {
-            display: none;
-        }
-        #wrapper-content.offline .content.offline {
-            display: block;
-        }                
+
     </style>
 </head>
 
@@ -70,37 +51,81 @@
     <div id="page">
 
         <div id="wrapper-content" class="online">
-            <div class="header">
-                <img class="logo-img" src="images/logo.png" alt="Mňága a Žďorp">
+            <div class="header container">
+                <div><img class="logo-img" src="images/logo.png" alt="Mňága a Žďorp"></div>
+                            <div class="switch-wrapper"><div id="container-switcher">
+                                <input id="switch" type="checkbox" data-toggle="switchbutton" checked data-onlabel="Online" data-offlabel="Offline"
+                                    data-onstyle="dark"></div>
+                            </div>
             </div>
-            <div id="container-switcher">
-                    <input id="switch" type="checkbox" data-toggle="switchbutton" checked data-onlabel="Online" data-offlabel="Offline" data-onstyle="dark">
-            </div>
+
             <div class="content online">
+                <div class="section">
+                    <div class="container">
                 <div class="container-date container-dark">
                     <div class="date-box">
-                        <p><span class="bigger-text">30. 5. 2020<br>ve 20:00<br> Koncert Mňága a Žďorp + film Happy End</span></p>
+                        <p><span class="bigger-text">30. 5. 2020<br>ve 20:00<br> Koncert Mňága a Žďorp + film Happy
+                                End</span></p>
+                                        <div class="em-cont mb-2">
+                                        
+                                            <div class="embed">
+                                                <iframe loading="lazy" scrolling="no"
+                                                    src="https://www.mall.tv/embed/kulturazije/mnaga-a-zdorp-koncert-pisnicek-z-alba-trinohy-pes-16-5-21-00"
+                                                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe>
+                                            </div>
+                                        </div>
+                                
                     </div>
                 </div>
-                <div class="em-cont mb-2">  
-                         
-                    <div class="embed">
-                        <iframe loading="lazy" scrolling="no"
-                            src="https://www.mall.tv/kulturazije/mnaga-a-zdorp-koncert-pisnicek-z-alba-trinohy-pes-16-5-21-00"
-                            frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen=""></iframe>
-                    </div>
-                </div>
-                <h2>CHCI PROMÍTAT U SEBE V PODNIKU </h2>
-                <h2>JIŽ SE ZAPOJILI</h2>
 
-                                <div id="map-mapycz" style="height:380px">
-                                </div>
+                </div>
+            </div>
+                <div class="section">
+                    <div class="container">
+                    <div class="text-center"><h2 class="yellow-border">CHCI PROMÍTAT U SEBE V PODNIKU </h2></div>
+                    <p class="text-center">Vyplňte tento krátký dotazník a ...</p>
+                    <form class="form-for-businesses">
+                        <div class="form-group">
+                            <label for="inputName">Název zařízení</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Název zařízení">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Místo zařízení</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Adresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputCapacity">Kapacita</label>
+                            <input type="text" class="form-control" id="inputCapacity" placeholder="Počet lidí">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="E-mailová adresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputTelephone">Telefon</label>
+                            <input type="text" class="form-control" id="inputTelephone" placeholder="Telefonní kontakt">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Odeslat</button>
+                    </form>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                <div class="text-center"><h2 class="yellow-border">JIŽ SE ZAPOJILI</h2></div>
+</div>
+                <div id="map-mapycz" style="height:380px">
+                </div>
+                </div>
+                
             </div>
             <div class="content offline">
+                <div class="section">
                 <div class="container-date">
-                        <p><span class="bigger-text">30. 5. 2020 <br> Mňága a Žďorp + film Happy End <br> amfitéatr Valašské Meziřící</span></p>
-                        <a href="" target="_blank" class="link">KOUPIT VSTUPENKU</a>
+                    <p><span class="bigger-text">30. 5. 2020 <br> Mňága a Žďorp + film Happy End <br> amfitéatr Valašské
+                            Meziřící</span></p>
+                    <a href="" target="_blank" class="link">KOUPIT VSTUPENKU</a>
 
+                </div>
                 </div>
             </div>
         </div>
@@ -112,7 +137,8 @@
                 </div>
                 <div class="mtvapp1">
                     <div class="applinksbox">
-                        <p>Kapelu Mňága a Žďorp a další oblíbené pořady MALL.TV, můžete sledovat pohodlně v mobilu, ve své
+                        <p>Kapelu Mňága a Žďorp a další oblíbené pořady MALL.TV, můžete sledovat pohodlně v mobilu, ve
+                            své
                             Smart TV
                             nebo na XBOXU! Stačí si jen vybrat.</p>
                         <a target="_blank" href="https://apps.apple.com/cz/app/mall-tv/id1446896639"
@@ -168,64 +194,64 @@
         }, true);
         /* Mapy */
 
-    var obrazek = "https://api.mapy.cz/img/api/marker/drop-red.png";
+        var obrazek = "images/pointer.png";
 
-    var m = new SMap(JAK.gel("map-mapycz"));
-    m.addControl(new SMap.Control.Sync()); /* Aby mapa reagovala na změnu velikosti průhledu */
-    m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
-    var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
-    m.addControl(mouse);
+        var m = new SMap(JAK.gel("map-mapycz"));
+        m.addControl(new SMap.Control.Sync()); /* Aby mapa reagovala na změnu velikosti průhledu */
+        m.addDefaultLayer(SMap.DEF_BASE).enable(); /* Turistický podklad */
+        var mouse = new SMap.Control.Mouse(SMap.MOUSE_PAN | SMap.MOUSE_WHEEL | SMap.MOUSE_ZOOM); /* Ovládání myší */
+        m.addControl(mouse);
 
-    var vrstva = new SMap.Layer.Marker();     /* Vrstva se značkami */
-    var souradnice = [];
-    // data pro markery
-    var markers = [{
-        name: "Karlštejn",
-        description: "blah blah <span>1</span>",
-        id: 1,
-        coords: "49°56'21.57\"N,14°11'17.96\"E"
-    }, {
-        name: "Křivoklát",
-        description: "blah blah <span>2</span>",        
-        id: 2,
-        coords: "50°2'16.36\"N,13°52'18.59\"E"
-    }, {
-        name: "Kost",
-        description: "blah blah <span>3</span>",        
-        id: 3,
-        coords: "50°29'24.83\"N,15°8'6.38\"E"
-    }];
+        var vrstva = new SMap.Layer.Marker();     /* Vrstva se značkami */
+        var souradnice = [];
+        // data pro markery
+        var markers = [{
+            name: "Karlštejn",
+            description: "blah blah <span>1</span>",
+            id: 1,
+            coords: "49°56'21.57\"N,14°11'17.96\"E"
+        }, {
+            name: "Křivoklát",
+            description: "blah blah <span>2</span>",
+            id: 2,
+            coords: "50°2'16.36\"N,13°52'18.59\"E"
+        }, {
+            name: "Kost",
+            description: "blah blah <span>3</span>",
+            id: 3,
+            coords: "50°29'24.83\"N,15°8'6.38\"E"
+        }];
 
-    // vytvoreni markeru
-    markers.forEach(function (marker) {
-        var c = SMap.Coords.fromWGS84(marker.coords); /* Souřadnice značky, z textového formátu souřadnic */
+        // vytvoreni markeru
+        markers.forEach(function (marker) {
+            var c = SMap.Coords.fromWGS84(marker.coords); /* Souřadnice značky, z textového formátu souřadnic */
 
-        var options = {
-            url: obrazek,
-            title: marker.name,
-            anchor: { left: 10, bottom: 1 }  /* Ukotvení značky za bod uprostřed dole */
-        }
+            var options = {
+                url: obrazek,
+                title: marker.name,
+                anchor: { left: 10, bottom: 1 }  /* Ukotvení značky za bod uprostřed dole */
+            }
 
-        
-        var card = new SMap.Card();
-        card.getHeader().innerHTML = "<strong>" + marker.name + "</strong>";
-        card.getBody().innerHTML = marker.description;
 
-        // duletize je prirazeni id jednotlivemu markeru - vlastni id, jinak se generuje nahodne
-        var znacka = new SMap.Marker(c, marker.id, options);
-        souradnice.push(c);
-        znacka.decorate(SMap.Marker.Feature.Card, card);
-        vrstva.addMarker(znacka);
-    });
+            var card = new SMap.Card();
+            card.getHeader().innerHTML = "<strong>" + marker.name + "</strong>";
+            card.getBody().innerHTML = marker.description;
 
-    // zobrazime a povolime vrstvu - pokud by se vrstva povolila pred vkladanim markeru, tak by se s kazdym vlozenym markerem prekreslovala mapa a pocitaly pozice vsech markeru
-    m.addLayer(vrstva);                          /* Přidat ji do mapy */
-    vrstva.enable();                         /* A povolit */
+            // duletize je prirazeni id jednotlivemu markeru - vlastni id, jinak se generuje nahodne
+            var znacka = new SMap.Marker(c, marker.id, options);
+            souradnice.push(c);
+            znacka.decorate(SMap.Marker.Feature.Card, card);
+            vrstva.addMarker(znacka);
+        });
 
-    var cz = m.computeCenterZoom(souradnice); /* Spočítat pozici mapy tak, aby značky byly vidět */
-    m.setCenterZoom(cz[0], cz[1]);
+        // zobrazime a povolime vrstvu - pokud by se vrstva povolila pred vkladanim markeru, tak by se s kazdym vlozenym markerem prekreslovala mapa a pocitaly pozice vsech markeru
+        m.addLayer(vrstva);                          /* Přidat ji do mapy */
+        vrstva.enable();                         /* A povolit */
 
-              
+        var cz = m.computeCenterZoom(souradnice); /* Spočítat pozici mapy tak, aby značky byly vidět */
+        m.setCenterZoom(cz[0], cz[1]);
+
+
     </script>
 </body>
 
