@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 h1,
 h2,
 h3,
@@ -11,6 +15,110 @@ h6 {
   text-transform: uppercase;
   text-align: center;
   color: #000000;
+  font-weight: 700;
+}
+
+.header {
+  width: 100%;
+  background-image: url();
+  background-repeat: no-repeat;
+  height: 350px;
+}
+
+.logo-img {
+  float: right;
+  margin: 0 5%;
+}
+
+.container-dark {
+  background-color: #acacac;
+}
+
+.container-date {
+  text-align: center;
+  margin: 3% 0;
+  padding: 3% 0;
+  width: 100%;
+}
+
+.container-date .bigger-text {
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+.container-date .date-box {
+  background-color: #ffea00e0;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding: 5%;
+  border-radius: 10px;
+}
+
+.link {
+  padding: 1.5%;
+  font-size: 1.3em;
+  background-color: #FFE800;
+  display: block;
+  width: 250px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+a.link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.link:hover {
+  background-color: #EEBE00;
+}
+
+/* -------------- SWITCHER -------*/
+#container-switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.btn-dark {
+  background-color: #282d30;
+  color: #6bf700;
+  text-shadow: 0px 0px 20px rgba(107, 247, 0, 0.5), 0px 0px 40px rgba(107, 247, 0, 0.5), 0px 0px 60px rgba(107, 247, 0, 0.5), 0px 0px 80px rgba(107, 247, 0, 0.5);
+}
+
+.btn-light {
+  background-color: #282d30;
+  color: #ff0000;
+  text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.5), 0px 0px 40px rgba(255, 0, 0, 0.5), 0px 0px 60px rgba(255, 0, 0, 0.5), 0px 0px 80px rgba(255, 0, 0, 0.5);
+}
+
+.btn-dark:hover {
+  text-shadow: none;
+  color: #6bf700;
+}
+
+.btn-light:hover {
+  text-shadow: none;
+  color: #ff0000;
+}
+
+.btn {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #282d30;
 }
 
 /*Mall TV carousel */
