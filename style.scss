@@ -1,5 +1,8 @@
 $accent1: #FFE800;
 $accent2: #EEBE00;
+$accent3: #ffea00e0;
+$accent4: #acacac;
+
 $on: #6bf700;
 $on-hover:rgb(107,247,0);
 $off: #ff0000;
@@ -37,16 +40,27 @@ html {
 	  float: right;
 	  margin: 0 5%;
   }
-
-  #container-date {
-	  text-align: center;
-	  margin: 3% 3% 0;
-	  padding: 3% 0;
-	.bigger-text {
-		font-weight: 700;
-		font-size: 2em;
-		line-height: 1.5em;
+	.container-dark {
+		background-color: $accent4;
 	}
+  .container-date {
+	  text-align: center;
+	  margin: 3% 0;
+	  padding: 3% 0;
+	  width: 100%;
+		.bigger-text {
+			font-weight: 700;
+			font-size: 2em;
+			line-height: 1.5em;
+		}
+		.date-box {
+			background-color: $accent3;
+			width: 50%;	
+			display: block;	
+			margin: auto;
+			padding: 5%;
+			border-radius: 10px; 
+		}
 }
 
 .link {
